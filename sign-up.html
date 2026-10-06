@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-up Page</title>
+    <link href="sign-up.css" rel="stylesheet">
+</head>
+<script>
+    function validate() {
+        var u, e, c, p, cp;
+        u = document.getElementById('username_signup_id').value;
+        e = document.getElementById('email_signup_id').value;
+        c = document.getElementById('contact_signup_id').value;
+        p = document.getElementById('pass-signup_id').value;
+        cp = document.getElementById('cpass_signup_id').value;
+
+        if (isNaN(c)) {
+            alert("Please enter a valid number");
+            return false;
+        }
+        else if (p == cp) {
+            return true;
+        }
+        else {
+            alert("Passwords do not match");
+            return false;
+        }
+    }
+</script>
+
+<body>
+    <main class="signup-shell">
+        <section class="signup-hero">
+            <div class="hero-copy">
+                <p class="eyebrow">Travel smarter</p>
+                <h1>Create your account</h1>
+                <p class="hero-text">Join our bus booking platform to save passenger details, manage trips faster, and keep every journey organized in one place.</p>
+                <div class="hero-points">
+                    <div class="point-card">
+                        <span class="point-number">01</span>
+                        <p>Quick booking flow with a cleaner account experience.</p>
+                    </div>
+                    <div class="point-card">
+                        <span class="point-number">02</span>
+                        <p>Secure your details and return to book in seconds.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="signup-panel">
+            <div class="form-card">
+                <div class="form-intro">
+                    <p class="form-kicker">Welcome aboard</p>
+                    <h2>Sign up</h2>
+                    <p>Fill in your details to create a new account.</p>
+                </div>
+
+                <form autocomplete="off" action="sign-up.php" method="post" onsubmit="return validate()">
+                    <div class="field-grid">
+                        <div class="inputclass">
+                            <label for="username_signup_id">Username</label>
+                            <input type="text" name="usrnam_name" id="username_signup_id" placeholder="Enter your username" required>
+                        </div>
+
+                        <div class="inputclass">
+                            <label for="email_signup_id">Email</label>
+                            <input type="email" name="mail_name" id="email_signup_id" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="inputclass">
+                            <label for="contact_signup_id">Contact number</label>
+                            <input type="text" name="contct_name" id="contact_signup_id" maxlength="10" minlength="10" placeholder="10-digit mobile number" required>
+                        </div>
+
+                        <div class="inputclass">
+                            <label for="pass-signup_id">Password</label>
+                            <input type="password" name="pass_name" id="pass-signup_id" placeholder="Create a password" required>
+                        </div>
+
+                        <div class="inputclass">
+                            <label for="cpass_signup_id">Confirm password</label>
+                            <input type="password" name="cpass_name" id="cpass_signup_id" placeholder="Re-enter your password" required>
+                        </div>
+                    </div>
+
+                    <div class="btnn">
+                        <input class="btn_signup" type="submit" value="Create Account">
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
